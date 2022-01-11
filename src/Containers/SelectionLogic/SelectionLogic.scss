@@ -1,0 +1,31 @@
+.selection-options {
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+  &__selection-box {
+    display: grid;
+    grid-template-columns: repeat(12, 50px);
+    margin: 50px;
+  }
+  &__selection {
+    border: 1px black solid;
+    height: 50px;
+    width: 50px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__selected-box {
+    margin: 50px;
+  }
+  &__selected {
+    border: 1px black solid;
+    height: 50px;
+    width: 50px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -1,0 +1,27 @@
+.table {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(3, 100px);
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
+  &__box {
+    border: 1px solid black;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+  }
+  &__clickedBox {
+    border: 1px solid black;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    background-color: green;
+  }
+}
