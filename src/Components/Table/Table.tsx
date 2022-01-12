@@ -4,14 +4,19 @@ export const Table = (props: any) => {
   const tableNumbers: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const [answerCards, setAnswerCards] = useState<number[]>(tableNumbers);
   const { table } = props;
+  const shuffle = (array: Array<number>) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  };
   const generateCards = (table: number): void => {
     let answerArray = [];
     for (let i = 0; i < 12; i++) {
       answerArray.push(tableNumbers[i] * table);
     }
-    console.log(answerArray);
+    shuffle(answerArray);
     setAnswerCards(answerArray);
-    console.log(answerCards);
   };
 
   const [currentCard, setCurrentCard] = useState<number>();
@@ -26,14 +31,13 @@ export const Table = (props: any) => {
 
     if (currentCard === event.target.textContent * table) {
       answerCards.splice(0, 1);
-      console.log(answerCards);
       setCurrentCard(answerCards[0]);
+      //set background to green?
     } else {
-      console.log(answerCards);
-      console.log("git gud son");
+      //set background to red?
+      //reset this when?
     }
   };
-
   useEffect(() => {
     setCurrentCard(answerCards[0]);
   }, [handleAnswer]);

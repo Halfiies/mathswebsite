@@ -1,11 +1,9 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { Home } from "./Components/Homepage/Homepage";
+import { TablesGame } from "./Components/TablesGame/TablesGame";
 const App = () => {
   return (
     <div>
-      <Home />
+      <TablesGame />
     </div>
   );
 };
