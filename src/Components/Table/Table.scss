@@ -33,9 +33,9 @@
   }
 }
 .currentAnswer {
-  display: flex;
   justify-content: center;
   align-items: center;
+  padding: 30px;
   &__card {
     display: flex;
     border: 1px solid black;
@@ -52,13 +52,13 @@
 .tableIndicator {
   justify-content: center;
   align-items: center;
+  padding: 30px;
   &__card {
     display: flex;
     background-color: white;
     border: 1px solid black;
     border-radius: 5px;
     font-size: larger;
-
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 40px;
