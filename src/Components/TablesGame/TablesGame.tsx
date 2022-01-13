@@ -3,6 +3,7 @@ import { Table } from "../Table/Table";
 import { Selection } from "../Selection/Selection";
 export const TablesGame = () => {
   const [table, setTable] = useState(2);
+
   const handleSet = (event: any) => {
     console.log(event.target.textContent);
     setTable(event.target.textContent);
@@ -10,6 +11,7 @@ export const TablesGame = () => {
   return (
     <div>
       <Selection handleSet={handleSet} table={table} />
+      <>Timer</>
       <Table table={table} />
     </div>
   );
