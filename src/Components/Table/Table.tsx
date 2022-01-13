@@ -2,7 +2,22 @@ import "./Table.scss";
 import { useState, useEffect } from "react";
 export const Table = (props: any) => {
   const tableNumbers: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const clickedArray: Array<boolean> = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ];
   const [answerCards, setAnswerCards] = useState<number[]>(tableNumbers);
+  const [isCorrect, setIsCorrect] = useState<boolean[]>(clickedArray);
   const { table } = props;
   const shuffle = (array: Array<number>) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -32,10 +47,17 @@ export const Table = (props: any) => {
     if (currentCard === event.target.textContent * table) {
       answerCards.splice(0, 1);
       setCurrentCard(answerCards[0]);
-      //set background to green?
-    } else {
-      //set background to red?
-      //reset this when?
+
+      let alteredArray = isCorrect.map((correct, i) => {
+        if (event.target.textContent == i + 1) {
+          return !correct;
+        } else {
+          return correct;
+        }
+      });
+      console.log(alteredArray);
+      setIsCorrect(alteredArray);
+      console.log(isCorrect);
     }
   };
   useEffect(() => {
@@ -47,8 +69,12 @@ export const Table = (props: any) => {
         <p>{currentCard}</p>
       </div>
       <div className="table">
-        {tableNumbers.map((number) => (
-          <p className="table__box" onClick={handleAnswer} key={number}>
+        {tableNumbers.map((number, i) => (
+          <p
+            className={`${isCorrect[i] ? "table__clickedBox" : "table__box"} `}
+            onClick={handleAnswer}
+            key={number}
+          >
             {number}
           </p>
         ))}
