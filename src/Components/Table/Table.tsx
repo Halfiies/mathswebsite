@@ -66,7 +66,8 @@ export const Table = (props: any) => {
   return (
     <div className="table__container">
       <div className="currentAnswer">
-        <p>{currentCard}</p>
+        <h3>Current Card</h3>
+        <p className="currentAnswer__card">{currentCard}</p>
       </div>
       <div className="table">
         {tableNumbers.map((number, i) => (
@@ -78,6 +79,10 @@ export const Table = (props: any) => {
             {number}
           </p>
         ))}
+      </div>
+      <div className="tableIndicator">
+        <h3>Selected Table</h3>
+        <p className="tableIndicator__card">{table}</p>
       </div>
     </div>
   );

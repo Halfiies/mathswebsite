@@ -1,27 +1,67 @@
 .table {
   margin: auto;
   display: grid;
+  grid-gap: 5px;
   grid-template-columns: repeat(4, 100px);
   grid-template-rows: repeat(3, 100px);
+
   &__container {
     display: flex;
     justify-content: center;
+    background-color: #d6d3d6;
+    padding-bottom: 100vh;
   }
   &__box {
     border: 1px solid black;
+    border-radius: 5px;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: larger;
+    background-color: white;
   }
   &__clickedBox {
     border: 1px solid black;
+    border-radius: 5px;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: larger;
     background-color: green;
+  }
+}
+.currentAnswer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__card {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: larger;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: white;
+  }
+}
+.tableIndicator {
+  justify-content: center;
+  align-items: center;
+  &__card {
+    display: flex;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: larger;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }

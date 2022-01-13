@@ -8,8 +8,8 @@ export const TablesGame = () => {
     setTable(event.target.textContent);
   };
   return (
-    <div>
-      <Selection handleSet={handleSet} table={table} />
+    <div className="tablesGame">
+      <Selection handleSet={handleSet} />
       <Table table={table} />
     </div>
   );

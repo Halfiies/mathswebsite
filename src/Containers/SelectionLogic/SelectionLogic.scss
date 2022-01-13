@@ -1,29 +1,28 @@
 .selection-options {
-  display: flex;
-  justify-content: center;
+  background-color: #d6d3d6;
   font-size: larger;
-  &__selection-box {
-    display: grid;
-    grid-template-columns: repeat(12, 50px);
-    margin: 50px;
-  }
-  &__selection {
-    border: 1px black solid;
-    height: 50px;
-    width: 50px;
-    margin: 0;
+  &__title {
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin: auto;
   }
-  &__selected-box {
-    margin: 50px;
+  &__selection-box {
+    display: flex;
+    justify-content: center;
+    display: grid;
+    grid-gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(12, 50px);
+    padding-bottom: 50px;
   }
-  &__selected {
+  &__selection {
+    background-color: white;
+    justify-content: center;
     border: 1px black solid;
+    border-radius: 5px;
     height: 50px;
     width: 50px;
-    margin: 0;
+    margin: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
