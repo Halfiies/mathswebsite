@@ -16,6 +16,7 @@ export const Table = (props: any) => {
     false,
     false,
   ];
+  const [timer, setTimer] = useState(0);
   const [answerCards, setAnswerCards] = useState<number[]>(tableNumbers);
   const [isCorrect, setIsCorrect] = useState<boolean[]>(clickedArray);
   const { table } = props;
@@ -39,11 +40,21 @@ export const Table = (props: any) => {
     generateCards(table);
     setCurrentCard(answerCards[0]);
   }, [table]);
-
+  const handleTimer = (event: any) => {
+    let start: number;
+    let timeElapsed;
+    if (answerCards.length == 12) {
+      start = Date.now();
+    } else if (answerCards.length < 12) {
+      timeElapsed = Date.now() - start;
+      setTimer(timeElapsed);
+    } else {
+      let start = 0;
+    }
+    console.log(start);
+    console.log(timeElapsed);
+  };
   const handleAnswer = (event: any) => {
-    console.log(event.target.textContent);
-    console.log(answerCards);
-
     if (currentCard === event.target.textContent * table) {
       answerCards.splice(0, 1);
       setCurrentCard(answerCards[0]);
@@ -60,6 +71,10 @@ export const Table = (props: any) => {
       console.log(isCorrect);
     }
   };
+  const handleClick = (event: any) => {
+    handleTimer(event);
+    handleAnswer(event);
+  };
   useEffect(() => {
     setCurrentCard(answerCards[0]);
   }, [handleAnswer]);
@@ -68,11 +83,12 @@ export const Table = (props: any) => {
       <div className="currentAnswer">
         <p>{currentCard}</p>
       </div>
+      <div>{timer}</div>
       <div className="table">
         {tableNumbers.map((number, i) => (
           <p
             className={`${isCorrect[i] ? "table__clickedBox" : "table__box"} `}
-            onClick={handleAnswer}
+            onClick={handleClick}
             key={number}
           >
             {number}
